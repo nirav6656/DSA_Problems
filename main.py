@@ -91,42 +91,51 @@
 
 # Union of Two Sorted Arrays
 
-def findUnion(arr1, arr2, n, m):
-    union = []
-    i = j = 0
-
-    while i < n and j < m:
-        if arr1[i] < arr2[j]:
-            if len(union) == 0 or union[-1] != arr1[i]:
-                union.append(arr1[i])
-            i += 1
-        elif arr1[i] > arr2[j]:
-            if len(union) == 0 or union[-1] != arr1[i]:
-                union.append(arr2[j])
-            j += 1
-        else:
-            if len(union) == 0 or union[-1] != arr1[i]:
-                union.append(arr1[i])
-            i += 1
-            j += 1
-
-    while i < n:
-        if union[-1] != arr1[i]:
-            union.append(arr1[i])
-        i += 1
-
-    while j < m:
-        if union[-1] != arr1[j]:
-            union.append(arr2[j])
-        j += 1
-
-    return union
-
-
-print(findUnion([1,2,3,4,5],[1,2,3],5,3))
+# def findUnion(arr1, arr2, n, m):
+#     union = []
+#     i = j = 0
+#
+#     while i < n and j < m:
+#         if arr1[i] < arr2[j]:
+#             if len(union) == 0 or union[-1] != arr1[i]:
+#                 union.append(arr1[i])
+#             i += 1
+#         elif arr1[i] > arr2[j]:
+#             if len(union) == 0 or union[-1] != arr1[i]:
+#                 union.append(arr2[j])
+#             j += 1
+#         else:
+#             if len(union) == 0 or union[-1] != arr1[i]:
+#                 union.append(arr1[i])
+#             i += 1
+#             j += 1
+#
+#     while i < n:
+#         if union[-1] != arr1[i]:
+#             union.append(arr1[i])
+#         i += 1
+#
+#     while j < m:
+#         if union[-1] != arr1[j]:
+#             union.append(arr2[j])
+#         j += 1
+#
+#     return union
 
 
+# print(findUnion([1,2,3,4,5],[1,2,3],5,3))
 
+
+# 268. Missing Number
+
+# def missingNumber(self, nums: List[int]) -> int:
+#     length = len(nums)
+#     total = (length * (length + 1)) / 2
+#     for i in range(length):
+#         total = total - nums[i]
+#     return int(total)
+#
+# print(missingNumber([3,0,1]))
 
 
 
