@@ -76,35 +76,54 @@
 
 # Searching an element in a sorted array - Binary Search
 
-def binary(arr,high,low,x):
-    mid = (high + low)//2
-    if x == arr[mid]:
-        return mid
-    elif x > arr[mid]:
-        return binary(arr,high,mid+1,x)
-    else:
-        return binary(arr,mid - 1,low,x)
+# def binary(arr,high,low,x):
+#     mid = (high + low)//2
+#     if x == arr[mid]:
+#         return mid
+#     elif x > arr[mid]:
+#         return binary(arr,high,mid+1,x)
+#     else:
+#         return binary(arr,mid - 1,low,x)
+# arr = [1,2,3,4,5,6,7,8,9]
+#
+# print(binary(arr,len(arr)-1,0,6))
 
 
+# Union of Two Sorted Arrays
+
+def findUnion(arr1, arr2, n, m):
+    union = []
+    i = j = 0
+
+    while i < n and j < m:
+        if arr1[i] < arr2[j]:
+            if len(union) == 0 or union[-1] != arr1[i]:
+                union.append(arr1[i])
+            i += 1
+        elif arr1[i] > arr2[j]:
+            if len(union) == 0 or union[-1] != arr1[i]:
+                union.append(arr2[j])
+            j += 1
+        else:
+            if len(union) == 0 or union[-1] != arr1[i]:
+                union.append(arr1[i])
+            i += 1
+            j += 1
+
+    while i < n:
+        if union[-1] != arr1[i]:
+            union.append(arr1[i])
+        i += 1
+
+    while j < m:
+        if union[-1] != arr1[j]:
+            union.append(arr2[j])
+        j += 1
+
+    return union
 
 
-
-
-
-
-
-arr = [1,2,3,4,5,6,7,8,9]
-
-print(binary(arr,len(arr)-1,0,6))
-
-
-
-
-
-
-
-
-
+print(findUnion([1,2,3,4,5],[1,2,3],5,3))
 
 
 
