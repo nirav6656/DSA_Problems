@@ -55,9 +55,47 @@
 #
 # print(removeDuplicates([4,5,7,8,9,9,9]))
 
+# 283. Move Zeroes
+
+# def move_zeros(nums):
+#     n =  len(nums)
+#     i = -1
+#
+#     for j in range(n):
+#         if nums[j] == 0:
+#             i = j
+#             break
+#     for j in range(j+1,n):
+#         if nums[j] != 0:
+#             temp = nums[j]
+#             nums[j] = nums[i]
+#             nums[i] = temp
+#             i+=1
+#     return nums
+
+
+# Searching an element in a sorted array - Binary Search
+
+def binary(arr,high,low,x):
+    mid = (high + low)//2
+    if x == arr[mid]:
+        return mid
+    elif x > arr[mid]:
+        return binary(arr,high,mid+1,x)
+    else:
+        return binary(arr,mid - 1,low,x)
 
 
 
+
+
+
+
+
+
+arr = [1,2,3,4,5,6,7,8,9]
+
+print(binary(arr,len(arr)-1,0,6))
 
 
 
